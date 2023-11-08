@@ -2,7 +2,8 @@
 from datasource.mongodb_datasource import MongoDBDataSource
 from manager.group_member_manager import GroupMemberManager
 
-if __name__ == "__main__":
+
+def main():
 
     data_source = MongoDBDataSource()
     group_member_manager = GroupMemberManager(data_source)
@@ -10,3 +11,7 @@ if __name__ == "__main__":
 
     # 并发为群添加成员
     results = group_member_manager.create_concurrently(group_ids_to_add_member)
+
+
+if __name__ == "__main__":
+    main()
