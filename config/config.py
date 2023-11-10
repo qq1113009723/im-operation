@@ -3,7 +3,7 @@ import json
 
 # Initialize the ConfigParser
 config = configparser.ConfigParser()
-config.read('config/config-prepub.ini')
+config.read('config/config-pro.ini')
 # MongoDB setup
 MONGO_URI = config.get('mongodb', 'mongo_uri')
 MONGO_DATABASE_NAME = config.get('mongodb', 'database_name')

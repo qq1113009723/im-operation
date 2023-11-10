@@ -17,8 +17,6 @@ from threading import Lock
 
 # 创建一个锁对象
 lock = Lock()
-
-
 @thread_safety.thread_safe_function(lock)
 def write_result_to_excel(account_info, result):
     # 检查是否存在Excel文件，如果不存在则创建
