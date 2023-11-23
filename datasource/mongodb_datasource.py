@@ -1,5 +1,3 @@
-import json
-
 from pymongo import MongoClient
 
 import config.config as config
@@ -41,6 +39,11 @@ class MongoDBDataSource(DataSource):
         accounts = accounts_collection.find(config.DB_QUERIES['accounts_query'])
         return map_fields(accounts, 'accounts')
 
+    def query(self, collection_name, query_lang, map_name):
+        collection = self.db[collection_name]
+        datas = collection.find(query_lang)
+        return map_fields(datas, map_name)
+
     # 实现其他方法...
     def get_groups(self, collection_name='im_group'):
         """
@@ -76,4 +79,3 @@ class MongoDBDataSource(DataSource):
         # 从查询结果中提取'userImId'
         im_ids = [doc['userImId'] for doc in group_members]
         return im_ids
-

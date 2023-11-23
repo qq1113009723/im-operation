@@ -3,7 +3,7 @@ import json
 
 # Initialize the ConfigParser
 config = configparser.ConfigParser()
-config.read('config/config-pro.ini')
+config.read('config/config-test.ini')
 # MongoDB setup
 MONGO_URI = config.get('mongodb', 'mongo_uri')
 MONGO_DATABASE_NAME = config.get('mongodb', 'database_name')
@@ -20,11 +20,13 @@ DB_QUERIES = {
     'accounts_query': json.loads(config.get('db_queries', 'accounts_query')),
     'groups_query': json.loads(config.get('db_queries', 'groups_query')),
     'group_ids_query': json.loads(config.get('db_queries', 'group_ids_query')),
+    'accounts_delete_query': json.loads(config.get('db_queries', 'accounts_delete_query')),
 }
 
 # im
 IM_APIS = {
     'account_import' : config.get('im_api_urls','account_import'),
+    'account_delete':config.get("im_api_urls",'account_delete'),
     'create_group' : config.get('im_api_urls','create_group'),
     'add_group_member' : config.get('im_api_urls','add_group_member')
 }

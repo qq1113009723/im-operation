@@ -72,6 +72,6 @@ class GroupMemberManager(Creator, IMConfigBase):
 
         result = response.json()
         logger.info(f"Add member to group result for payload: {payload}: {result}")
-        write_result_to_excel(payload, result)
+        # write_result_to_excel(payload, result)
         # 将结果写入Excel
         return result

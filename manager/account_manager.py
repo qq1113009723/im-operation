@@ -66,5 +66,25 @@ class AccountManager(Creator, IMConfigBase):
         result = response.json()
         logger.info(f"Account creation result for user ID {account_info['UserID']}: {result}")
         # 将结果写入Excel
-        write_result_to_excel(account_info, result)
+        # write_result_to_excel(account_info, result)
         return result
+
+    def delete_one(self, account_info):
+        # 构造请求体
+        payload = {
+            "DeleteItem":[
+                {
+                    "UserID":account_info['UserID']
+                }
+            ]
+        }
+
+        # 发起POST请求
+        response = requests.post(config.IM_APIS['account_delete'], headers=self.generate_request_header(),
+                                 params=self.generate_request_params(), data=json.dumps(payload))
+        result = response.json()
+        logger.info(f"Account delete result for user ID {account_info['UserID']}: {result}")
+        # 将结果写入Excel
+        # write_result_to_excel(account_info, result)
+        return result
+

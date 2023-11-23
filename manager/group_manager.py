@@ -76,5 +76,5 @@ class GroupManager(Creator, IMConfigBase):
         result = response.json()
         logger.info(f"Account creation result for group ID {group_info['GroupId']}: {result}")
         # 将结果写入Excel
-        write_result_to_excel(group_info, result)
+        # write_result_to_excel(group_info, result)
         return result
